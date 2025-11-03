@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Windows 11 Web (Demo)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="desktop">
+    <div class="icon" data-app="file-explorer">
+      <div class="icon-img">📁</div>
+      <div class="icon-label">File Explorer</div>
+    </div>
+    <div class="icon" data-app="notepad">
+      <div class="icon-img">📝</div>
+      <div class="icon-label">Notepad</div>
+    </div>
+    <div class="icon" data-app="settings">
+      <div class="icon-img">⚙️</div>
+      <div class="icon-label">Settings</div>
+    </div>
+  </div>
+
+  <div id="taskbar">
+    <div id="start-button" title="Start">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg>
+    </div>
+    <div id="taskbar-center"></div>
+    <div id="tray"><div id="clock"></div></div>
+  </div>
+
+  <div id="start-menu" class="hidden">
+    <div class="start-grid">
+      <button class="tile" data-app="file-explorer">File Explorer</button>
+      <button class="tile" data-app="notepad">Notepad</button>
+      <button class="tile" data-app="settings">Settings</button>
+    </div>
+    <div class="start-footer">User • Sign out</div>
+  </div>
+
+  <div id="windows"></div>
+
+  <template id="window-template">
+    <div class="window">
+      <div class="titlebar">
+        <div class="title">App</div>
+        <div class="controls">
+          <button class="min">—</button>
+          <button class="max">◻</button>
+          <button class="close">✕</button>
+        </div>
+      </div>
+      <div class="content">Hello</div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
