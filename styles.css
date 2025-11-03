@@ -1,0 +1,75 @@
+:root{
+  --bg: linear-gradient(180deg,#0f1724 0%, #0b1a2b 100%);
+  --taskbar:#0b1220bd;
+  --accent: #0063f7;
+  --glass: rgba(255,255,255,0.06);
+  --text: #e6eef8;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color:var(--text);
+  overflow:hidden;
+}
+
+#desktop{
+  position:fixed; inset:0; padding:20px;
+  display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;
+}
+
+.icon{
+  width:72px; text-align:center; cursor:pointer; user-select:none;
+}
+.icon-img{font-size:36px; width:72px; height:56px; display:flex; align-items:center; justify-content:center; border-radius:6px;}
+.icon-label{font-size:12px; margin-top:6px; color:#cfe6ff}
+
+#taskbar{
+  position:fixed; left:0; right:0; bottom:0; height:48px;
+  display:flex; align-items:center; padding:0 12px; gap:12px;
+  background:var(--taskbar); backdrop-filter: blur(6px);
+  border-top:1px solid rgba(255,255,255,0.03);
+}
+#start-button{
+  width:44px; height:36px; display:flex; align-items:center; justify-content:center;
+  border-radius:8px; cursor:pointer; color:var(--text);
+}
+#taskbar-center{flex:1; display:flex; gap:8px; align-items:center; justify-content:center}
+
+#tray{display:flex; align-items:center; gap:12px}
+#clock{font-size:13px; color:#dbefff}
+
+#start-menu{
+  position:fixed; left:18px; bottom:64px; width:360px; background:var(--glass); border-radius:12px; padding:12px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.04);
+}
+.hidden{display:none}
+.start-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.tile{
+  background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.02);
+  padding:12px; border-radius:8px; color:var(--text); cursor:pointer; text-align:center;
+  font-weight:600;
+}
+.start-footer{margin-top:8px; font-size:13px; color:#9fb6d9; text-align:right}
+
+#windows{position:fixed; inset:0; pointer-events:none}
+.window{
+  position:absolute; width:560px; height:360px; background:rgba(255,255,255,0.02); border-radius:10px;
+  border:1px solid rgba(255,255,255,0.03); overflow:hidden; pointer-events:auto;
+  box-shadow: 0 12px 36px rgba(2,6,23,0.6);
+  display:flex; flex-direction:column;
+}
+.titlebar{height:40px; display:flex; align-items:center; justify-content:space-between; padding:0 8px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+.title{font-weight:700; padding-left:8px}
+.controls button{background:transparent; border:0; color:var(--text); font-size:14px; width:36px; height:28px; cursor:pointer; border-radius:6px}
+.controls button:hover{background:rgba(255,255,255,0.03)}
+.content{flex:1; padding:12px; font-size:14px; color:#d8e9ff; overflow:auto}
+
+@media (max-width:600px){
+  #start-menu{left:8px; right:8px; width:auto}
+  .window{width:calc(100% - 24px)!important; height:60vh!important; left:12px!important; top:12px!important}
+}
